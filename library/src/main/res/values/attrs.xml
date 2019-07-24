@@ -2,14 +2,16 @@
 <resources>
 	
 	<declare-styleable name = "Breadcrumb">
-		<!-- select text size and color-->
 		<attr name = "selectTextSize" format = "dimension"/>
 		<attr name = "selectTextColor" format = "color"/>
-		
 		<attr name = "normalTextSize" format = "dimension"/>
 		<attr name = "normalTextColor" format = "color"/>
-		
 		<attr name = "splitMark" format = "string"/>
+	</declare-styleable>
+	
+	<declare-styleable name = "CleanableEditText">
+		<attr name = "clearIcon" format = "reference"/>
+		<attr name = "iconLeftPadding" format = "dimension"/>
 	</declare-styleable>
 
 </resources>

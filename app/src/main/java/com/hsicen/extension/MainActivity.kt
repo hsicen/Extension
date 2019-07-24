@@ -14,5 +14,9 @@ class MainActivity : AppCompatActivity() {
         btnBread.setOnClickListener {
             startActivity(Intent(this, BreadActivity::class.java))
         }
+
+        btnClear.setOnClickListener {
+            startActivity(Intent(this, CleanEditTextActivity::class.java))
+        }
     }
 }
