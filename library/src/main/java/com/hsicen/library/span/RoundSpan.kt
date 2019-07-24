@@ -13,7 +13,7 @@ import com.hsicen.library.sp2px
  * <p>功能：
  * <p>描述：Round rect span shape with spannableString
  */
-class RoundPrizeSpan(private val bgColor: Int, val textColor: Int) : ReplacementSpan() {
+class RoundSpan(private val bgColor: Int, val textColor: Int) : ReplacementSpan() {
     private val mRadius = 2f.dp2px
     private var mSize = 0
 

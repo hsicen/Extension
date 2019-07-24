@@ -1,3 +1,4 @@
 <resources>
 	<string name = "app_name">Library</string>
+	<string name = "splitMark"><![CDATA[>]]></string>
 </resources>

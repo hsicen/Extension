@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<declare-styleable name = "Breadcrumb">
+		<!-- select text size and color-->
+		<attr name = "selectTextSize" format = "dimension"/>
+		<attr name = "selectTextColor" format = "color"/>
+		
+		<attr name = "normalTextSize" format = "dimension"/>
+		<attr name = "normalTextColor" format = "color"/>
+		
+		<attr name = "splitMark" format = "string"/>
+	</declare-styleable>
+
+</resources>

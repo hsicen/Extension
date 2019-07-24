@@ -20,6 +20,18 @@ val Float.dp2px: Float
         TypedValue.COMPLEX_UNIT_DIP, this, Resources.getSystem().displayMetrics
     )
 
+val Float.px2sp: Float
+    get() {
+        val scaledDensity = Resources.getSystem().displayMetrics.scaledDensity
+        return (this / scaledDensity + 0.5f)
+    }
+
+val Float.px2dp: Float
+    get() {
+        val scaledDensity = Resources.getSystem().displayMetrics.density
+        return (this / scaledDensity + 0.5f)
+    }
+
 val Int.sp2px: Int
     get() = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_SP, this * 1.0f, Resources.getSystem().displayMetrics
