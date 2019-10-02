@@ -19,7 +19,11 @@ import com.hsicen.library.px2sp
  * <p>作用：
  * <p>描述：Breadcrumb View
  */
-class Breadcrumb @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class Breadcrumb @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
     HorizontalScrollView(context, attrs, defStyleAttr) {
 
     /*** mark load times*/
@@ -39,10 +43,12 @@ class Breadcrumb @JvmOverloads constructor(context: Context, attrs: AttributeSet
         mFirstLoad = true
         val typedArray = context.resources.obtainAttributes(attrs, R.styleable.Breadcrumb)
 
-        mSelectColor = typedArray.getColor(R.styleable.Breadcrumb_selectTextColor, Color.parseColor("#8899a9"))
+        mSelectColor =
+            typedArray.getColor(R.styleable.Breadcrumb_selectTextColor, Color.parseColor("#8899a9"))
         // return px value,  if it is sp/dp value, the return value will be (sp/dp * density)
         mSelectSize = typedArray.getDimension(R.styleable.Breadcrumb_selectTextSize, 30f).px2sp
-        mTextColor = typedArray.getColor(R.styleable.Breadcrumb_normalTextColor, Color.parseColor("#20a6fd"))
+        mTextColor =
+            typedArray.getColor(R.styleable.Breadcrumb_normalTextColor, Color.parseColor("#20a6fd"))
         mTextSize = typedArray.getDimension(R.styleable.Breadcrumb_normalTextSize, 30f).px2sp
         mSplitText = typedArray.getString(R.styleable.Breadcrumb_splitMark) ?: ">"
         typedArray.recycle()
@@ -86,7 +92,8 @@ class Breadcrumb @JvmOverloads constructor(context: Context, attrs: AttributeSet
         // add or remove breadcrumbs
         when {
             size > mNumBread -> for (i in mNumBread until size) {
-                val itemView = LayoutInflater.from(context).inflate(R.layout.layout_bread_crumb, null)
+                val itemView =
+                    LayoutInflater.from(context).inflate(R.layout.layout_bread_crumb, null)
                 val tv = itemView.findViewById(R.id.tv_content) as TextView
                 val split = itemView.findViewById(R.id.tv_split) as TextView
                 tv.text = mData[i]

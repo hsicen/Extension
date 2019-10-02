@@ -13,17 +13,33 @@ import com.hsicen.library.sp2px
  * <p>功能：
  * <p>描述：Round rect span shape with spannableString
  */
-class RoundSpan(private val bgColor: Int, val textColor: Int) : ReplacementSpan() {
+class RoundSpan(private val bgColor: Int, private val textColor: Int) : ReplacementSpan() {
     private val mRadius = 2f.dp2px
     private var mSize = 0
 
-    override fun getSize(paint: Paint, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
+    override fun getSize(
+        paint: Paint,
+        text: CharSequence?,
+        start: Int,
+        end: Int,
+        fm: Paint.FontMetricsInt?
+    ): Int {
 
         mSize = (paint.measureText(text, start, end) + mRadius * 2).toInt()
         return mSize
     }
 
-    override fun draw(canvas: Canvas, text: CharSequence, start: Int, end: Int, x: Float, top: Int, y: Int, bottom: Int, paint: Paint) {
+    override fun draw(
+        canvas: Canvas,
+        text: CharSequence,
+        start: Int,
+        end: Int,
+        x: Float,
+        top: Int,
+        y: Int,
+        bottom: Int,
+        paint: Paint
+    ) {
         val defColor = paint.color
         val def = paint.strokeWidth
 

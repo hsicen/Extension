@@ -14,4 +14,11 @@
 		<attr name = "iconLeftPadding" format = "dimension"/>
 	</declare-styleable>
 
+    <declare-styleable name="MaterialEditText">
+        <attr name="useLabel" format="boolean" />
+        <attr name="label" format="string" />
+        <attr name="labelSize" format="dimension" />
+        <attr name="labelColor" format="color" />
+    </declare-styleable>
+
 </resources>
