@@ -27,7 +27,11 @@ class BreadActivity : AppCompatActivity() {
         }
 
         bread.addOnItemClick { view, index ->
-            Toast.makeText(this, (view as TextView).text.toString() + "  $index", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                (view as TextView).text.toString() + "  $index",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
