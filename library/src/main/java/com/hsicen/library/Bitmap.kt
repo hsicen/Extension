@@ -18,7 +18,6 @@ import java.io.FileOutputStream
  * <p>描述：Bitmap extension
  */
 
-
 /** *  Resize bitmap */
 fun Bitmap.resize(width: Int, height: Int) = Bitmap.createScaledBitmap(this, width, height, true)
 

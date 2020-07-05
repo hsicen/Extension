@@ -30,15 +30,9 @@ class RoundSpan(private val bgColor: Int, private val textColor: Int) : Replacem
     }
 
     override fun draw(
-        canvas: Canvas,
-        text: CharSequence,
-        start: Int,
-        end: Int,
-        x: Float,
-        top: Int,
-        y: Int,
-        bottom: Int,
-        paint: Paint
+        canvas: Canvas, text: CharSequence,
+        start: Int, end: Int,
+        x: Float, top: Int, y: Int, bottom: Int, paint: Paint
     ) {
         val defColor = paint.color
         val def = paint.strokeWidth
