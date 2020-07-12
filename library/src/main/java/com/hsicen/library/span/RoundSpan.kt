@@ -4,8 +4,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import android.text.style.ReplacementSpan
-import com.hsicen.library.dp2px
-import com.hsicen.library.sp2px
+import com.hsicen.library.extensions.dp2px
+import com.hsicen.library.extensions.sp2px
 
 /**
  * <p>作者：Hsicen  2019/7/23 16:15

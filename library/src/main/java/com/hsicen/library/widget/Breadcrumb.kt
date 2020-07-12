@@ -11,7 +11,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import com.hsicen.library.R
-import com.hsicen.library.px2sp
+import com.hsicen.library.extensions.px2sp
 
 /**
  * <p>作者：Hsicen  2019/7/24 9:24

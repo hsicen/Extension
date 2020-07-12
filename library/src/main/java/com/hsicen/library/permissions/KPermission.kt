@@ -101,8 +101,7 @@ class KPermission private constructor(private val fragmentManager: FragmentManag
          * @return Boolean
          */
         fun shouldShowRequestPermissionRationale(
-            act: Activity,
-            vararg permissions: String
+            act: Activity, vararg permissions: String
         ): Boolean {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
                 return false
@@ -146,7 +145,7 @@ class KPermission private constructor(private val fragmentManager: FragmentManag
         }
 
         /**
-         * 权限是被否拒绝.
+         * 权限是否被拒绝.
          * @param act Activity
          * @param permission String
          * @return Boolean

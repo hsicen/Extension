@@ -12,8 +12,8 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import com.hsicen.library.R
-import com.hsicen.library.dp2px
-import com.hsicen.library.sp2px
+import com.hsicen.library.extensions.dp2px
+import com.hsicen.library.extensions.sp2px
 
 /**
  * <p>作者：Hsicen  2019/10/2 17:26

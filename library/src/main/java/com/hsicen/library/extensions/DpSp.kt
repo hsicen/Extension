@@ -1,4 +1,4 @@
-package com.hsicen.library
+package com.hsicen.library.extensions
 
 import android.content.res.Resources
 import android.util.TypedValue
