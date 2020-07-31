@@ -1,5 +1,4 @@
 ext {
-
     //统一版本号
     versions = [
             'compileSdk'   : 28,

@@ -10,7 +10,7 @@ import android.content.Intent
  * 描述：Activity扩展
  */
 
-inline fun <reified T> startActivity(context: Context, block: Intent.() -> Unit) {
+inline fun <reified T> toActivity(context: Context, block: Intent.() -> Unit) {
     val intent = Intent(context, T::class.java)
     intent.block()
     context.startActivity(intent)
