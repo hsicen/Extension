@@ -40,4 +40,7 @@ dependencies {
     implementation Deps.appCompat
     implementation Deps.constrainLayout
     implementation Deps.material
+    implementation Deps.logger
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
 }

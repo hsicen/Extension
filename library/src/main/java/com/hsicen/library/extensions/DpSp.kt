@@ -1,7 +1,9 @@
 package com.hsicen.library.extensions
 
+import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
+import com.hsicen.library.utils.AppContextHolder
 
 /**
  * 作者：hsicen  3/20/21 2:28 PM
@@ -42,3 +44,22 @@ val Float.dp2px: Float
     get() = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, this, Resources.getSystem().displayMetrics
     )
+
+/***  获取屏幕高度*/
+fun screenHeight(): Int = AppContextHolder.mContext.resources.displayMetrics.heightPixels
+
+/*** 获取屏幕宽度*/
+fun screenWidth(): Int = AppContextHolder.mContext.resources.displayMetrics.widthPixels
+
+inline fun Context.dp2px(dp: Float) =
+    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.displayMetrics)
+
+inline fun Context.dp2px(dp: Int) = dp2px(dp.toFloat()).toInt()
+
+inline fun Context.sp2px(sp: Float) =
+    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, resources.displayMetrics)
+
+inline fun Context.sp2px(sp: Int) = sp2px(sp.toFloat()).toInt()
+
+inline fun Context.px2dp(px: Int) = px / resources.displayMetrics.density
+inline fun Context.px2sp(px: Int) = px / resources.displayMetrics.scaledDensity

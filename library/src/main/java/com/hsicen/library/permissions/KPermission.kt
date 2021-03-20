@@ -1,5 +1,6 @@
 package com.hsicen.library.permissions
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
@@ -103,9 +104,6 @@ class KPermission private constructor(private val fragmentManager: FragmentManag
         fun shouldShowRequestPermissionRationale(
             act: Activity, vararg permissions: String
         ): Boolean {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                return false
-            }
             return shouldShowRequestPermissionRationaleM(act, *permissions)
         }
 
@@ -156,6 +154,12 @@ class KPermission private constructor(private val fragmentManager: FragmentManag
         @TargetApi(Build.VERSION_CODES.M)
         private fun isRevokedM(act: Activity, permission: String): Boolean {
             return act.packageManager.isPermissionRevokedByPolicy(permission, act.packageName)
+        }
+
+        /*** 是否有相册权限*/
+        fun isAlbumEnable(context: Context): Boolean {
+            return isGranted(context, Manifest.permission.READ_EXTERNAL_STORAGE)
+                    && isGranted(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
     }
 }
