@@ -1,17 +1,17 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
+    compileSdkVersion Versions.compileSdk
 
     defaultConfig {
         applicationId "com.hsicen.extension"
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
     }
 
     buildTypes {
@@ -20,18 +20,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation Deps.kotlinStb
+    implementation Deps.appCompat
+    implementation Deps.corKtx
+    implementation Deps.constrainLayout
 
     implementation project(path: ':library')
 }
