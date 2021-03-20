@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion Versions.compileSdk
+    compileSdkVersion DepVersion.compileSdk
 
     defaultConfig {
         applicationId "com.hsicen.extension"
-        minSdkVersion Versions.minSdk
-        targetSdkVersion Versions.targetSdk
-        versionCode Versions.versionCode
-        versionName Versions.versionName
+        minSdkVersion DepVersion.minSdk
+        targetSdkVersion DepVersion.targetSdk
+        versionCode DepVersion.versionCode
+        versionName DepVersion.versionName
     }
 
     buildTypes {
@@ -21,7 +21,18 @@ android {
         }
     }
 
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {

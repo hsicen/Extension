@@ -5,7 +5,15 @@
  * 描述：第三方SDK和版本号管理
  */
 
-object Versions {
+object DepMaven {
+    const val jitpack = "https://www.jitpack.io"
+    const val aliGoogle = "https://maven.aliyun.com/repository/google"
+    const val aliJcenter = "https://maven.aliyun.com/repository/public/"
+    const val huawei = "http://developer.huawei.com/repo/"
+}
+
+
+object DepVersion {
     const val minSdk = 23
     const val compileSdk = 30
     const val targetSdk = 30
@@ -18,8 +26,7 @@ object Versions {
 
 
 object Deps {
-
-    const val kotlinStb = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    const val kotlinStb = "org.jetbrains.kotlin:kotlin-stdlib:${DepVersion.kotlin}"
     const val appCompat = "androidx.appcompat:appcompat:1.2.0"
     const val corKtx = "androidx.core:core-ktx:1.3.2"
     const val constrainLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
