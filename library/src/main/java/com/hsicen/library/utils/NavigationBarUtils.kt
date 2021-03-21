@@ -1,4 +1,4 @@
-package com.hsicen.library.extensions
+package com.hsicen.library.utils
 
 import android.app.Activity
 import android.content.Context

@@ -45,7 +45,7 @@ fun EditText.showKeyboardWithDelay(@IntRange(from = 0) delayTime: Long = 0) {
 fun View.hideKeyboardWithDelay(@IntRange(from = 0) delayTime: Long = 0) {
     postDelayed({
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        (imm.isActive).yes {
+        if (imm.isActive) {
             imm.hideSoftInputFromWindow(windowToken, 0)
         }
     }, delayTime)

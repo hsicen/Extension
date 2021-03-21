@@ -6,6 +6,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.marginBottom
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
 
 /**
  * 作者：hsicen  3/21/21 10:50 AM
@@ -39,11 +43,10 @@ abstract class CustomLayout @JvmOverloads constructor(
     }
 
     protected val View.measuredWidthWithMargins
-        get() = (measuredWidth)
-
+        get() = (measuredWidth + marginLeft + marginRight)
 
     protected val View.measuredHeightWithMargins
-        get() = (measuredHeight)
+        get() = (measuredHeight + marginTop + marginBottom)
 
     protected fun View.defaultWidthMeasureSpec(parentView: ViewGroup): Int {
         return when (layoutParams.width) {

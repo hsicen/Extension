@@ -41,6 +41,27 @@ dependencies {
     implementation Deps.constrainLayout
     implementation Deps.material
     implementation Deps.logger
+    implementation Deps.preferenceKtx
+    implementation Deps.playKtx
+    implementation Deps.roomKtx
+    implementation Deps.coroutines
 
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
+    implementation Deps.coreKtx
+    implementation Deps.activityKtx
+    implementation Deps.collectionKtx
+    implementation Deps.fragmentKtx
+
+    implementation Deps.lifecycleLiveDataKtx
+    implementation Deps.lifecycleLiveDataCoreKtx
+    implementation Deps.lifecycleStreamsKtx
+    implementation Deps.lifecycleRuntimeKtx
+    implementation Deps.lifecycleViewModelKtx
+
+    implementation Deps.navigationRuntimeKtx
+    implementation Deps.navigationFragmentKtx
+    implementation Deps.navigationUiKtx
+
+    implementation Deps.pagingCommonKtx
+    implementation Deps.pagingRuntimeKtx
+    implementation Deps.pagingRxjavaKtx
 }

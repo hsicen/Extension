@@ -39,7 +39,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Deps.kotlinStb
     implementation Deps.appCompat
-    implementation Deps.corKtx
+    implementation Deps.coreKtx
     implementation Deps.constrainLayout
 
     implementation project(path: ':library')
