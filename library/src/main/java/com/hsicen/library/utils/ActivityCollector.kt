@@ -1,4 +1,4 @@
-package com.hsicen.library
+package com.hsicen.library.utils
 
 import android.app.Activity
 
