@@ -20,12 +20,11 @@ object DepVersion {
 
     const val versionCode = 1
     const val versionName = "1.0"
-    const val kotlin = "1.4.30"
-
+    const val kotlin = "1.5.0"
 }
 
-
 object Deps {
+    val fileMap = mapOf("dir" to "libs", "include" to listOf("*.jar"))
     const val kotlinStb = "org.jetbrains.kotlin:kotlin-stdlib:${DepVersion.kotlin}"
     const val appCompat = "androidx.appcompat:appcompat:1.2.0"
     const val constrainLayout = "androidx.constraintlayout:constraintlayout:2.0.4"

@@ -9,7 +9,6 @@ import com.hsicen.library.extensions.enlargeSingleClickBounds
 import com.hsicen.library.toast.info
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

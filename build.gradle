@@ -4,12 +4,12 @@ buildscript {
         maven { url DepMaven.aliGoogle }
         maven { url DepMaven.aliJcenter }
         maven { url DepMaven.huawei }
+        maven { url DepMaven.jitpack }
         google()
-        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:4.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$DepVersion.kotlin"
     }
 }
@@ -19,8 +19,8 @@ allprojects {
         maven { url DepMaven.aliGoogle }
         maven { url DepMaven.aliJcenter }
         maven { url DepMaven.huawei }
+        maven { url DepMaven.jitpack }
         google()
-        jcenter()
     }
 }
 
