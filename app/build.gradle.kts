@@ -44,5 +44,5 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.coreKtx)
     implementation(Deps.constrainLayout)
-    implementation(project(":library"))
+    implementation(project(":extension"))
 }
