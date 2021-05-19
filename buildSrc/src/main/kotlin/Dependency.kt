@@ -20,7 +20,7 @@ object DepVersion {
 
     const val versionCode = 1
     const val versionName = "1.0"
-    const val kotlin = "1.5.0"
+    const val kotlin = "1.4.30"
 }
 
 object Deps {
