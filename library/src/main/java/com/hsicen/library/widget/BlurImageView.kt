@@ -8,10 +8,6 @@ import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
 import android.util.AttributeSet
 import com.google.android.material.imageview.ShapeableImageView
-import com.hsicen.library.utils.AppContextHolder
-import com.hsicen.library.widget.BlurImageView.Companion.blurBitmap
-import com.hsicen.library.widget.BlurImageView.Companion.roundTo1
-import java.security.MessageDigest
 
 /**
  * 作者：hsicen  4/7/21 11:25 AM
@@ -43,9 +39,9 @@ class BlurImageView : ShapeableImageView {
         return source
     }
 
-    fun setGaussBlur(): RequestOptions {
+    /*fun setGaussBlur(): RequestOptions {
         return RequestOptions.bitmapTransform(GlideBlurTransformation(AppContextHolder.mContext))
-    }
+    }*/
 
     companion object {
         fun blurBitmap(
@@ -76,7 +72,7 @@ class BlurImageView : ShapeableImageView {
     }
 }
 
-class GlideBlurTransformation internal constructor(private val context: Context) :
+/*class GlideBlurTransformation internal constructor(private val context: Context) :
     CenterCrop() {
     override fun transform(
         pool: BitmapPool,
@@ -95,6 +91,6 @@ class GlideBlurTransformation internal constructor(private val context: Context)
     }
 
     override fun updateDiskCacheKey(messageDigest: MessageDigest) {}
-}
+}*/
 
 

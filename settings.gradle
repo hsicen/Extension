@@ -1,9 +1,0 @@
-rootProject.name = "Extension"
-
-def include_project = { dir, name ->
-    include "$name"
-    project(":$name").projectDir = file("$dir/$name")
-}
-
-include ':app'
-include ':library'
