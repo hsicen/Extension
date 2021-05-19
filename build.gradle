@@ -11,6 +11,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$DepVersion.kotlin"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
@@ -24,3 +25,6 @@ allprojects {
     }
 }
 
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
