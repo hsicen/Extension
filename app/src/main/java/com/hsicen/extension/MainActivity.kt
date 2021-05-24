@@ -6,17 +6,14 @@ import com.hsicen.extension.databinding.ActivityMainBinding
 import com.hsicen.library.extensions.clickThrottle
 import com.hsicen.library.extensions.dp2px
 import com.hsicen.library.extensions.enlargeSingleClickBounds
+import com.hsicen.library.extensions.viewBinding
 import com.hsicen.library.toast.info
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private val binding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
 
         binding.btnExpand.enlargeSingleClickBounds(binding.root, 40.dp2px)
 

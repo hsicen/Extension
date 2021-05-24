@@ -1,6 +1,5 @@
 package com.hsicen.library.extensions
 
-import android.app.Activity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,17 +22,31 @@ import kotlin.reflect.KProperty
  * 描述：ViewBinding扩展
  */
 
-//扩展
-fun <T : ViewBinding> Activity.inflate(inflater: (LayoutInflater) -> T) = lazy {
-    inflater(layoutInflater).apply { setContentView(root) }
+//扩展  Activity  inflate方式
+inline fun <T : ViewBinding> AppCompatActivity.viewBinding(
+    crossinline bindingInflater: (LayoutInflater) -> T
+) = lazy(LazyThreadSafetyMode.NONE) {
+    bindingInflater.invoke(layoutInflater).apply {
+        setContentView(root)
+    }
 }
 
-fun <T : ViewBinding> Dialog.inflate(inflater: (LayoutInflater) -> T) = lazy {
-    inflater(layoutInflater).apply { setContentView(root) }
+//Dialog  inflate方式
+inline fun <T : ViewBinding> Dialog.viewBinding(
+    crossinline bindingInflater: (LayoutInflater) -> T
+) = lazy(LazyThreadSafetyMode.NONE) {
+    bindingInflater.invoke(layoutInflater).apply {
+        setContentView(root)
+    }
 }
 
-inline fun <reified T : ViewBinding> Fragment.bindView() =
-    FragmentViewBindingDelegate(T::class.java)
+//Fragment bind方式
+fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (View) -> T) =
+    FragmentViewBindingByBind(viewBindingFactory)
+
+//Fragment inflate方式
+fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (LayoutInflater) -> T) =
+    FragmentViewBindingByInflate(viewBindingFactory)
 
 //基类
 abstract class BindingActivity<T : ViewBinding> : AppCompatActivity() {
@@ -82,21 +95,42 @@ abstract class BindingFragment<T : ViewBinding> : Fragment() {
     }
 }
 
-class FragmentViewBindingDelegate<T : ViewBinding>(private val clazz: Class<T>) :
-    ReadOnlyProperty<Fragment, T> {
+class FragmentViewBindingByBind<T : ViewBinding>(
+    val bindingFactory: (View) -> T
+) : ReadOnlyProperty<Fragment, T> {
     private var binding: T? = null
 
-    @Suppress("UNCHECKED_CAST")
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         if (binding == null) {
-            binding =
-                clazz.getMethod("bind", View::class.java).invoke(null, thisRef.requireView()) as T
+            binding = bindingFactory(thisRef.requireView())
+
             thisRef.viewLifecycleOwner.lifecycle.addObserver(object : LifecycleEventObserver {
                 override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
                     if (event == Lifecycle.Event.ON_DESTROY) binding = null
                 }
             })
         }
+
+        return binding!!
+    }
+}
+
+class FragmentViewBindingByInflate<T : ViewBinding>(
+    val bindingFactory: (LayoutInflater) -> T
+) : ReadOnlyProperty<Fragment, T> {
+    private var binding: T? = null
+
+    override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
+        if (binding == null) {
+            binding = bindingFactory(thisRef.layoutInflater)
+
+            thisRef.viewLifecycleOwner.lifecycle.addObserver(object : LifecycleEventObserver {
+                override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                    if (event == Lifecycle.Event.ON_DESTROY) binding = null
+                }
+            })
+        }
+
         return binding!!
     }
 }
