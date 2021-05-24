@@ -42,11 +42,11 @@ inline fun <T : ViewBinding> Dialog.viewBinding(
 
 //Fragment bind方式
 fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (View) -> T) =
-    FragmentViewBindingByBind(viewBindingFactory)
+    FragmentViewBindingByBind(this, viewBindingFactory)
 
 //Fragment inflate方式
 fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (LayoutInflater) -> T) =
-    FragmentViewBindingByInflate(viewBindingFactory)
+    FragmentViewBindingByInflate(this, viewBindingFactory)
 
 //基类
 abstract class BindingActivity<T : ViewBinding> : AppCompatActivity() {
@@ -96,6 +96,7 @@ abstract class BindingFragment<T : ViewBinding> : Fragment() {
 }
 
 class FragmentViewBindingByBind<T : ViewBinding>(
+    val fragment: Fragment,
     val bindingFactory: (View) -> T
 ) : ReadOnlyProperty<Fragment, T> {
     private var binding: T? = null
@@ -116,6 +117,7 @@ class FragmentViewBindingByBind<T : ViewBinding>(
 }
 
 class FragmentViewBindingByInflate<T : ViewBinding>(
+    val fragment: Fragment,
     val bindingFactory: (LayoutInflater) -> T
 ) : ReadOnlyProperty<Fragment, T> {
     private var binding: T? = null
