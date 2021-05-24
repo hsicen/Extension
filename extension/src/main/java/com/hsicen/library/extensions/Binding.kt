@@ -32,7 +32,8 @@ fun <T : ViewBinding> Dialog.inflate(inflater: (LayoutInflater) -> T) = lazy {
     inflater(layoutInflater).apply { setContentView(root) }
 }
 
-inline fun <reified T : ViewBinding> Fragment.inflate() = FragmentViewBindingDelegate(T::class.java)
+inline fun <reified T : ViewBinding> Fragment.bindView() =
+    FragmentViewBindingDelegate(T::class.java)
 
 //基类
 abstract class BindingActivity<T : ViewBinding> : AppCompatActivity() {
